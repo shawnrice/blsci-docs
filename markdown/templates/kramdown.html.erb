@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <title>BLSCI Internal Documentation</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+    <div class='wrapper'>
+      <div class='nav'>
+        <ul class='nav-links'>
+        <% exclude = ['.', '..', '.DS_Store', 'templates', 'kramdown.html.erb'] %>
+        <% Dir.entries("markdown").each do |f| %>
+          <% unless exclude.include?(f) %>
+          <li class='nav-link'>
+            <a href='<%= f.gsub('.md', '') %>'><%= f.gsub('.md', '').capitalize %></a>
+          </li>
+          <% end %>
+        <% end %>
+        <li>&nbsp;</li>
+        <li><hr></li>
+        <li>&nbsp;</li>
+        <li><a href='settings'>Settings</a></li>
+        </ul>
+      </div>
+      <div class='content'>
+        <%= @body %>
+      </div>
+    </div>
+  </body>
+</html>

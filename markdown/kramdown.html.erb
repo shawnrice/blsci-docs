@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+  <title>The API Documentation</title>
+  <script type="text/javascript" src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/6.1/styles/default.min.css"/>
+  <script type="text/javascript">
+    var hilight_hljs = function(){
+      $('pre code').each(function(i, e){hljs.highlightBlock(e, '  ');});
+    };
+    var hilight_copy = function(){
+      $('.insert').each(function(index, element){
+        var e = $(element);
+        e.html($(e.html() + ' pre').parent().html());
+      });
+    };
+    $(document).ready(function(){
+      hilight_hljs();
+      hilight_copy();
+    });
+  </script>
+</head>
+<body>
+<%= @body %>
+</body>
+</html>
